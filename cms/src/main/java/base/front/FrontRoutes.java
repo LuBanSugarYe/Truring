@@ -5,21 +5,21 @@ import com.jfinal.config.Routes;
 /**
  * 
  * @ClassName:  FrontRoutes   
- * @Description:Ç°¶ËÂ·ÓÉµØÖ·
+ * @Description:å‰ç«¯è·¯ç”±åœ°å€
  * @author: SuagrYe 
- * @date:   2019Äê6ÔÂ14ÈÕ ÏÂÎç8:55:35      
+ * @date:   2019å¹´6æœˆ14æ—¥ ä¸‹åˆ8:55:35      
  * @Copyright: 2019 www.sugarye.com Inc. All rights reserved. 
- * ×¢Òâ£º±¾ÄÚÈİ½öÏŞÓÚÄÚ²¿´«ÔÄ£¬½ûÖ¹ÍâĞ¹ÒÔ¼°ÓÃÓÚÆäËûµÄÉÌÒµÄ¿
+ * æ³¨æ„ï¼šæœ¬å†…å®¹ä»…é™äºå†…éƒ¨ä¼ é˜…ï¼Œç¦æ­¢å¤–æ³„ä»¥åŠç”¨äºå…¶ä»–çš„å•†ä¸šç›®
  */
 public class FrontRoutes extends Routes {
 
-    //jfinalÂ·ÓÉÅäÖÃÎÄ¼ş 
+    //jfinalè·¯ç”±é…ç½®æ–‡ä»¶ 
 	public void config() {
 		
-		//ÉèÖÃÇ°¶ËÄ¬ÈÏµÄview·ÃÎÊÂ·¾¶
+		//è®¾ç½®å‰ç«¯é»˜è®¤çš„viewè®¿é—®è·¯å¾„
 		setBaseViewPath("/view/front");
 		
-		//ÉèÖÃÇ°¶Ë¹ÜÀí¿ØÖÆÆ÷
+		//è®¾ç½®å‰ç«¯ç®¡ç†æ§åˆ¶å™¨
         add("/front",FrontController.class,"/");
 	}
 

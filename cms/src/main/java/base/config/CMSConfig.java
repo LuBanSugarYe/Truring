@@ -25,8 +25,8 @@ public class CMSConfig extends JFinalConfig {
 	}
 	
 	/**
-	 * PropKit.useFirstFound(...) Ê¹ÓÃ²ÎÊıÖĞ´Ó×óµ½ÓÒ×îÏÈ±»ÕÒµ½µÄÅäÖÃÎÄ¼ş
-	 * ´Ó×óµ½ÓÒÒÀ´ÎÈ¥ÕÒÅäÖÃ£¬ÕÒµ½ÔòÁ¢¼´¼ÓÔØ²¢Á¢¼´·µ»Ø£¬ºóĞøÅäÖÃ½«±»ºöÂÔ
+	 * PropKit.useFirstFound(...) ä½¿ç”¨å‚æ•°ä¸­ä»å·¦åˆ°å³æœ€å…ˆè¢«æ‰¾åˆ°çš„é…ç½®æ–‡ä»¶
+	 * ä»å·¦åˆ°å³ä¾æ¬¡å»æ‰¾é…ç½®ï¼Œæ‰¾åˆ°åˆ™ç«‹å³åŠ è½½å¹¶ç«‹å³è¿”å›ï¼Œåç»­é…ç½®å°†è¢«å¿½ç•¥
 	 */
 	static void loadConfig() {
 		if (p == null) {
@@ -41,19 +41,19 @@ public class CMSConfig extends JFinalConfig {
 		me.setDevMode(p.getBoolean("devMode", false));
 		
 		/**
-		 * Ö§³Ö Controller¡¢Interceptor¡¢Validator Ö®ÖĞÊ¹ÓÃ @Inject ×¢ÈëÒµÎñ²ã£¬²¢ÇÒ×Ô¶¯ÊµÏÖ AOP
-		 * ×¢Èë¶¯×÷Ö§³ÖÈÎÒâÉî¶È²¢×Ô¶¯´¦ÀíÑ­»·×¢Èë
+		 * æ”¯æŒ Controllerã€Interceptorã€Validator ä¹‹ä¸­ä½¿ç”¨ @Inject æ³¨å…¥ä¸šåŠ¡å±‚ï¼Œå¹¶ä¸”è‡ªåŠ¨å®ç° AOP
+		 * æ³¨å…¥åŠ¨ä½œæ”¯æŒä»»æ„æ·±åº¦å¹¶è‡ªåŠ¨å¤„ç†å¾ªç¯æ³¨å…¥
 		 */
 		me.setInjectDependency(true);
 		
-		// ÅäÖÃ¶Ô³¬ÀàÖĞµÄÊôĞÔ½øĞĞ×¢Èë
+		// é…ç½®å¯¹è¶…ç±»ä¸­çš„å±æ€§è¿›è¡Œæ³¨å…¥
 		me.setInjectSuperClass(true);
 	}
 
 	@Override
 	public void configRoute(Routes me) {
-		me.add(new FrontRoutes()); //Ç°¶ËÂ·ÓÉ
-		me.add(new AdminRoutes()); //ºó¶ËÂ·ÓÉ
+		me.add(new FrontRoutes()); //å‰ç«¯è·¯ç”±
+		me.add(new AdminRoutes()); //åç«¯è·¯ç”±
 			
 	}
 
@@ -65,13 +65,13 @@ public class CMSConfig extends JFinalConfig {
 
 	@Override
 	public void configPlugin(Plugins me) {
-		// ÅäÖÃ druid Êı¾İ¿âÁ¬½Ó³Ø²å¼ş
+		// é…ç½® druid æ•°æ®åº“è¿æ¥æ± æ’ä»¶
 		DruidPlugin druidPlugin = new DruidPlugin(p.get("jdbcUrl"), p.get("user"), p.get("password").trim());
 		me.add(druidPlugin);
 		
-		// ÅäÖÃActiveRecord²å¼ş
+		// é…ç½®ActiveRecordæ’ä»¶
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
-		// ËùÓĞÓ³ÉäÔÚ MappingKit ÖĞ×Ô¶¯»¯¸ã¶¨
+		// æ‰€æœ‰æ˜ å°„åœ¨ MappingKit ä¸­è‡ªåŠ¨åŒ–æå®š
 		//_MappingKit.mapping(arp);
 		me.add(arp);
 		

@@ -5,21 +5,21 @@ import com.jfinal.config.Routes;
 /**
  * 
  * @ClassName:  AdminRoutes   
- * @Description:ºó¶ËÂ·ÓÉ¹ÜÀíÈë¿Ú  
+ * @Description:åç«¯è·¯ç”±ç®¡ç†å…¥å£  
  * @author: SuagrYe 
- * @date:   2019Äê6ÔÂ14ÈÕ ÏÂÎç10:45:34        
+ * @date:   2019å¹´6æœˆ14æ—¥ ä¸‹åˆ10:45:34        
  * @Copyright: 2019 www.sugarye.com Inc. All rights reserved. 
- * ×¢Òâ£º±¾ÄÚÈİ½öÏŞÓÚÄÚ²¿´«ÔÄ£¬½ûÖ¹ÍâĞ¹ÒÔ¼°ÓÃÓÚÆäËûµÄÉÌÒµÄ¿
+ * æ³¨æ„ï¼šæœ¬å†…å®¹ä»…é™äºå†…éƒ¨ä¼ é˜…ï¼Œç¦æ­¢å¤–æ³„ä»¥åŠç”¨äºå…¶ä»–çš„å•†ä¸šç›®
  */
 public class AdminRoutes extends Routes {
 
-    //jfinalÂ·ÓÉÅäÖÃÎÄ¼ş 
+    //jfinalè·¯ç”±é…ç½®æ–‡ä»¶ 
 	public void config() {
 		
-	    //ÉèÖÃºó¶ËÄ¬ÈÏµÄview·ÃÎÊÂ·¾¶
+	    //è®¾ç½®åç«¯é»˜è®¤çš„viewè®¿é—®è·¯å¾„
 		setBaseViewPath("/view/admin");
 		
-		//ÉèÖÃºó¶Ë¹ÜÀí¿ØÖÆÆ÷
+		//è®¾ç½®åç«¯ç®¡ç†æ§åˆ¶å™¨
         add("/admin",AdminController.class,"/");
 		
 	}

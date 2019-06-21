@@ -1,2 +1,9 @@
 eclipse.preferences.version=1
-encoding/<project>=GBK
+encoding//src/main/java/base/admin/AdminController.java=UTF-8
+encoding//src/main/java/base/admin/AdminRoutes.java=UTF-8
+encoding//src/main/java/base/config/CMSConfig.java=UTF-8
+encoding//src/main/java/base/front/FrontController.java=UTF-8
+encoding//src/main/java/base/front/FrontRoutes.java=UTF-8
+encoding//src/main/java/base/util/EncryptUtil.java=UTF-8
+encoding//src/main/java/base/util/MD5Util.java=UTF-8
+encoding/<project>=UTF-8

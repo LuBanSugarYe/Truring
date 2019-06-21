@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Arrays;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -13,16 +12,14 @@ import javax.crypto.spec.DESKeySpec;
 
 public class EncryptUtil {
 	
-	//private static final String PASSWORD_CRYPT_KEY = "88444488";
 	private static final String PASSWORD_CRYPT_KEY="0123456789ABCDEF";
 
 	private final static String DES = "DES";
 	
-	private static final Integer SALT_LENGTH = 12;
 	
 
 	/**
-	 * ¶ş´Î¼ÓÃÜ ÏÈsha-1¼ÓÃÜÔÙÓÃMD5¼ÓÃÜ
+	 * äºŒæ¬¡åŠ å¯† å…ˆsha-1åŠ å¯†å†ç”¨MD5åŠ å¯†
 	 * 
 	 * @param src
 	 * @return
@@ -32,7 +29,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ¶ş´Î¼ÓÃÜ ÏÈMD5¼ÓÃÜÔÙÓÃsha-1¼ÓÃÜ
+	 * äºŒæ¬¡åŠ å¯† å…ˆMD5åŠ å¯†å†ç”¨sha-1åŠ å¯†
 	 * 
 	 * @param src
 	 * @return
@@ -42,7 +39,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * md5¼ÓÃÜ
+	 * md5åŠ å¯†
 	 * 
 	 * @param src
 	 * @return
@@ -52,7 +49,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * sha-1¼ÓÃÜ
+	 * sha-1åŠ å¯†
 	 * 
 	 * @param src
 	 * @return
@@ -62,15 +59,15 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * md5»òÕßsha-1¼ÓÃÜ
+	 * md5æˆ–è€…sha-1åŠ å¯†
 	 * 
-	 * @param src           Òª¼ÓÃÜµÄÄÚÈİ
-	 * @param algorithmName ¼ÓÃÜËã·¨Ãû³Æ£ºmd5»òÕßsha-1£¬²»Çø·Ö´óĞ¡Ğ´
+	 * @param src           è¦åŠ å¯†çš„å†…å®¹
+	 * @param algorithmName åŠ å¯†ç®—æ³•åç§°ï¼šmd5æˆ–è€…sha-1ï¼Œä¸åŒºåˆ†å¤§å°å†™
 	 * @return
 	 */
 	private final static String encrypt(String src, String algorithmName) {
 		if (src == null || "".equals(src.trim())) {
-			throw new IllegalArgumentException("ÇëÊäÈëÒª¼ÓÃÜµÄÄÚÈİ");
+			throw new IllegalArgumentException("è¯·è¾“å…¥è¦åŠ å¯†çš„å†…å®¹");
 		}
 		if (algorithmName == null || "".equals(algorithmName.trim())) {
 			algorithmName = "md5";
@@ -91,7 +88,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ÃÜÂë½âÃÜ
+	 * å¯†ç è§£å¯†
 	 * 
 	 * @param data
 	 * @return
@@ -106,7 +103,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ÃÜÂë¼ÓÃÜ
+	 * å¯†ç åŠ å¯†
 	 * 
 	 * @param password
 	 * @return
@@ -121,57 +118,57 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ¼ÓÃÜ
+	 * åŠ å¯†
 	 * 
-	 * @param src Êı¾İÔ´
-	 * @param key ÃÜÔ¿£¬³¤¶È±ØĞëÊÇ8µÄ±¶Êı
-	 * @return ·µ»Ø¼ÓÃÜºóµÄÊı¾İ
+	 * @param src æ•°æ®æº
+	 * @param key å¯†é’¥ï¼Œé•¿åº¦å¿…é¡»æ˜¯8çš„å€æ•°
+	 * @return è¿”å›åŠ å¯†åçš„æ•°æ®
 	 * @throws Exception
 	 */
 	private static byte[] encrypt(byte[] src, byte[] key) throws Exception {
-		// DESËã·¨ÒªÇóÓĞÒ»¸ö¿ÉĞÅÈÎµÄËæ»úÊıÔ´
+		// DESç®—æ³•è¦æ±‚æœ‰ä¸€ä¸ªå¯ä¿¡ä»»çš„éšæœºæ•°æº
 		SecureRandom sr = new SecureRandom();
-		// ´ÓÔ­Ê¼ÃÜ³×Êı¾İ´´½¨DESKeySpec¶ÔÏó
+		// ä»åŸå§‹å¯†åŒ™æ•°æ®åˆ›å»ºDESKeySpecå¯¹è±¡
 		DESKeySpec dks = new DESKeySpec(key);
-		// ´´½¨Ò»¸öÃÜ³×¹¤³§£¬È»ºóÓÃËü°ÑDESKeySpec×ª»»³ÉÒ»¸öSecretKey¶ÔÏó
+		// åˆ›å»ºä¸€ä¸ªå¯†åŒ™å·¥å‚ï¼Œç„¶åç”¨å®ƒæŠŠDESKeySpecè½¬æ¢æˆä¸€ä¸ªSecretKeyå¯¹è±¡
 		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);
 		SecretKey securekey = keyFactory.generateSecret(dks);
-		// Cipher¶ÔÏóÊµ¼ÊÍê³É¼ÓÃÜ²Ù×÷
+		// Cipherå¯¹è±¡å®é™…å®ŒæˆåŠ å¯†æ“ä½œ
 		Cipher cipher = Cipher.getInstance(DES);
-		// ÓÃÃÜ³×³õÊ¼»¯Cipher¶ÔÏó
+		// ç”¨å¯†åŒ™åˆå§‹åŒ–Cipherå¯¹è±¡
 		cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);
-		// ÏÖÔÚ£¬»ñÈ¡Êı¾İ²¢¼ÓÃÜÕıÊ½Ö´ĞĞ¼ÓÃÜ²Ù×÷
+		// ç°åœ¨ï¼Œè·å–æ•°æ®å¹¶åŠ å¯†æ­£å¼æ‰§è¡ŒåŠ å¯†æ“ä½œ
 		return cipher.doFinal(src);
 	}
 
 	/**
-	 * ½âÃÜ
+	 * è§£å¯†
 	 * 
-	 * @param src Êı¾İÔ´
-	 * @param key ÃÜÔ¿£¬³¤¶È±ØĞëÊÇ8µÄ±¶Êı
-	 * @return ·µ»Ø½âÃÜºóµÄÔ­Ê¼Êı¾İ
+	 * @param src æ•°æ®æº
+	 * @param key å¯†é’¥ï¼Œé•¿åº¦å¿…é¡»æ˜¯8çš„å€æ•°
+	 * @return è¿”å›è§£å¯†åçš„åŸå§‹æ•°æ®
 	 * 
 	 * @throws Exception
 	 */
 	private final static byte[] decrypt(byte[] src, byte[] key) throws Exception {
-		// DESËã·¨ÒªÇóÓĞÒ»¸ö¿ÉĞÅÈÎµÄËæ»úÊıÔ´
+		// DESç®—æ³•è¦æ±‚æœ‰ä¸€ä¸ªå¯ä¿¡ä»»çš„éšæœºæ•°æº
 		SecureRandom sr = new SecureRandom();
-		// ´ÓÔ­Ê¼ÃÜ³×Êı¾İ´´½¨Ò»¸öDESKeySpec¶ÔÏó
+		// ä»åŸå§‹å¯†åŒ™æ•°æ®åˆ›å»ºä¸€ä¸ªDESKeySpecå¯¹è±¡
 		DESKeySpec dks = new DESKeySpec(key);
-		// ´´½¨Ò»¸öÃÜ³×¹¤³§£¬È»ºóÓÃËü°ÑDESKeySpec¶ÔÏó×ª»»³ÉÒ»¸öSecretKey¶ÔÏó
+		// åˆ›å»ºä¸€ä¸ªå¯†åŒ™å·¥å‚ï¼Œç„¶åç”¨å®ƒæŠŠDESKeySpecå¯¹è±¡è½¬æ¢æˆä¸€ä¸ªSecretKeyå¯¹è±¡
 		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);
 		SecretKey securekey = keyFactory.generateSecret(dks);
-		// Cipher¶ÔÏóÊµ¼ÊÍê³É½âÃÜ²Ù×÷
+		// Cipherå¯¹è±¡å®é™…å®Œæˆè§£å¯†æ“ä½œ
 		Cipher cipher = Cipher.getInstance(DES);
-		// ÓÃÃÜ³×³õÊ¼»¯Cipher¶ÔÏó
+		// ç”¨å¯†åŒ™åˆå§‹åŒ–Cipherå¯¹è±¡
 		cipher.init(Cipher.DECRYPT_MODE, securekey, sr);
-		// ÏÖÔÚ£¬»ñÈ¡Êı¾İ²¢½âÃÜÕıÊ½Ö´ĞĞ½âÃÜ²Ù×÷
+		// ç°åœ¨ï¼Œè·å–æ•°æ®å¹¶è§£å¯†æ­£å¼æ‰§è¡Œè§£å¯†æ“ä½œ
 		return cipher.doFinal(src);
 	}
 
 	private final static byte[] hex2byte(byte[] b) {
 		if ((b.length % 2) != 0)
-			throw new IllegalArgumentException("³¤¶È²»ÊÇÅ¼Êı");
+			throw new IllegalArgumentException("é•¿åº¦ä¸æ˜¯å¶æ•°");
 		byte[] b2 = new byte[b.length / 2];
 		for (int n = 0; n < b.length; n += 2) {
 			String item = new String(b, n, 2);
@@ -181,7 +178,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ¶şĞĞÖÆ×ª×Ö·û´®
+	 * äºŒè¡Œåˆ¶è½¬å­—ç¬¦ä¸²
 	 * 
 	 * @param b
 	 * @return
@@ -200,7 +197,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ·µ»ØÊ®Áù½øÖÆ×Ö·û´®
+	 * è¿”å›åå…­è¿›åˆ¶å­—ç¬¦ä¸²
 	 * 
 	 * @param arr
 	 * @return

@@ -11,7 +11,5 @@ public class AdminLogin {
       String ab = EncryptUtil.md5("123456.891206@");
       System.out.println(ab);
       
-      boolean abc=EncryptUtil.validPassword("123456.891206@", "65c88b932818053da12d1f613360a6ce");
-      System.out.println(abc);
 	}
 }

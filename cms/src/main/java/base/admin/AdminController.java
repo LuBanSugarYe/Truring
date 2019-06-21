@@ -5,19 +5,18 @@ import com.jfinal.core.Controller;
 /**
  * 
  * @ClassName: AdminController
- * @Description:¹ÜÀíÏµÍ³µÄÈë¿Ú
+ * @Description:ç®¡ç†ç³»ç»Ÿçš„å…¥å£
  * @author: SuagrYe
- * @date: 2019Äê6ÔÂ14ÈÕ ÏÂÎç9:59:51
- * 
+ * @date: 2019å¹´6æœˆ14æ—¥ ä¸‹åˆ9:59:51
  * @Copyright: 2019 www.sugarye.com Inc. All rights reserved.
- *             ×¢Òâ£º±¾ÄÚÈİ½öÏŞÓÚÄÚ²¿´«ÔÄ£¬½ûÖ¹ÍâĞ¹ÒÔ¼°ÓÃÓÚÆäËûµÄÉÌÒµÄ¿
+ * æ³¨æ„ï¼šæœ¬å†…å®¹ä»…é™äºå†…éƒ¨ä¼ é˜…ï¼Œç¦æ­¢å¤–æ³„ä»¥åŠç”¨äºå…¶ä»–çš„å•†ä¸šç›®
  */
 public class AdminController extends Controller {
 	
 	/**
 	 * 
 	 * @Title: index 
-	 * @Description: Ä¬ÈÏ·ÃÎÊÒ³Ãæ
+	 * @Description: é»˜è®¤è®¿é—®é¡µé¢
 	 * @param: void
 	 * @return:void 
 	 * @throws
